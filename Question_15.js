@@ -2,33 +2,24 @@
 
 function generatePassword(len,spl_num,spl_char, )
 { 
+     var  charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
      
-     
-    if( spl_num==true)
+    if( spl_num)
     {
-        var length = len,
-        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-        retVal = "";
-       for (var i = 0, n = charset.length; i < length; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
-      }
-
-    return retVal;
-    
+        charset +="0123456789"
     }
-    else if(spl_char==true && spl_num==true)
+     if(spl_num)
     {
-        var length = len,
-        charset = "!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()",
-        retVal = "";
-       for (var i = 0, n = charset.length; i < length; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
-      }
-
-    return retVal;
-    
+         charset +="!@#$%^&*?"    
+    }
+    let retVal=""
+    for(let i =0 , n = charset.length ; i<len ; ++i)
+    {
          
+             retVal += charset.charAt(Math.floor(Math.random()*n))
     }
+
+      return retVal
 }
 
-console.log(generatePassword(10,true,true))
+console.log(generatePassword(4,true,true))
